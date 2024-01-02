@@ -32,15 +32,13 @@ public class AuthController {
         return "login";
     }
 
-    // handler method to handle user registration request
     @GetMapping("register")
     public String showRegistrationForm(Model model){
         UserDto user = new UserDto();
         model.addAttribute("user", user);
         return "register";
     }
-
-    // handler method to handle register user form submit request
+    
     @PostMapping("/register/save")
     public String registration(@Valid @ModelAttribute("user") UserDto user,
                                BindingResult result,
@@ -64,10 +62,4 @@ public class AuthController {
     public String nextPage(){
         return "category";
     }
-//    @GetMapping("/users")
-//    public String listRegisteredUsers(Model model){
-//        List<UserDto> users = userService.findAllUsers();
-//        model.addAttribute("users", users);
-//        return "users";
-//    }
 }
